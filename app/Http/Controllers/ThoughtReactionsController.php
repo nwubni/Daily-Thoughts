@@ -12,6 +12,7 @@ class ThoughtReactionsController extends Controller
         return view('reactions.index', [
             'thought' => $thought,
             'reactions' => $thought->reactions()
+                ->latest()
                 ->with('user')
                 ->paginate(10)
         ]);
