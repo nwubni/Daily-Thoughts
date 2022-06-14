@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('message');
             $table->json('photos')->nullable();
             $table->json('tags')->nullable();
+            $table->double('lat', 15, 6)->default(0.0);
+            $table->double('lng', 15, 6)->default(0.0);
             $table->softDeletes();
             $table->timestamps();
         });
