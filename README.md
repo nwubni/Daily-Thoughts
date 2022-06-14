@@ -5,7 +5,7 @@ DailyThoughts is a basic web application being built using PHP and Laravel for s
 ## Project Availability
 
 Updates will be available when this trivial project goes live
-Click the following link to see sample screenshots https://github.com/nwubni/Daily-Thoughts/wiki
+Click the following link to see sample screenshots of how the development progresses https://github.com/nwubni/Daily-Thoughts/wiki
 
 ## Opinion
 
