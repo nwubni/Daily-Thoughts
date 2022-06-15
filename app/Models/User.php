@@ -50,6 +50,6 @@ class User extends Authenticatable
 
     public function reactions()
     {
-        return $this->hasMany(ThoughtReaction::class);
+        return $this->hasMany(Reaction::class);
     }
 }

@@ -5,10 +5,10 @@
         </h2>
     </x-slot>
 
-    <div class="py-2 bg-white shadow-lg">
-        <div class="mb-8 mx-auto flex items-center justify-center">
+    <div class="mb-8 bg-white shadow-lg">
+        <div class="mx-auto flex items-center justify-center">
             <div class="w-1/2">
-                <div class="px-6 py-4">
+                <div class="px-6 pb-4">
                     <h4 class="mb-1 text-xl font-semibold tracking-tight text-gray-800">{{ $thought->user->name }}</h4>
                     <h5 class="mb-2 text-sm font-semibold tracking-tight text-pink-800">{{ $thought->created_at->diffForHumans() }}</h5>
                     <p class="leading-normal text-gray-700">{{ $thought->message }}</p>
@@ -19,7 +19,7 @@
                         @csrf
                         <!-- Reaction -->
                         <div>
-                            <input id="reaction" class="block mt-1 w-full" type="text" name="reaction" placeholder="What is your reaction?" value="{{ old('reaction') }}" required/>
+                            <input id="reaction" class="block mt-1 w-full" type="text" name="reaction" autocomplete="off" placeholder="What is your reaction?" value="{{ old('reaction') }}" required />
                         </div>
 
                         <div class="flex items-center justify-end mt-4">
@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <div class="py-12">
+    <div class="py-6">
         @if(count($reactions))
         @foreach($reactions as $reaction)
         <div class="mb-8 mx-auto flex items-center justify-center">

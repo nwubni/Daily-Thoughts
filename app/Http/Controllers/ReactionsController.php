@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Thought;
 use Illuminate\Http\Request;
 
-class ThoughtReactionsController extends Controller
+class ReactionsController extends Controller
 {
     public function list(Thought $thought)
     {
@@ -27,6 +27,7 @@ class ThoughtReactionsController extends Controller
         $data['user_id'] = $request->user()->id;
 
         $thought->reactions()->create($data);
+        $thought->touch('updated_at');
 
         return redirect('/reactions/' . $thought->id);
     }

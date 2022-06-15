@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ThoughtReactionsController;
+use App\Http\Controllers\ReactionsController;
 use App\Http\Controllers\ThoughtsController;
 use App\Models\Thought;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +25,6 @@ Route::get('/', function () {
 Route::get('/feed', function () {
     return view('feed', [
         'thoughts' => Thought::latest('updated_at')
-            ->with('user')
             ->withCount('reactions')
             ->paginate(4)
     ]);
@@ -39,5 +38,5 @@ Route::get('/thought/{thought}', [ThoughtsController::class, 'details'])->middle
 Route::patch('/thought/{thought}', [ThoughtsController::class, 'update'])->middleware('auth');
 Route::delete('/thought/{thought}', [ThoughtsController::class, 'destroy'])->middleware('auth');
 
-Route::get('/reactions/{thought}', [ThoughtReactionsController::class, 'list'])->name('get.reactions')->middleware('auth');
-Route::post('/reactions/{thought}', [ThoughtReactionsController::class, 'store'])->name('react')->middleware('auth');
+Route::get('/reactions/{thought}', [ReactionsController::class, 'list'])->name('get.reactions')->middleware('auth');
+Route::post('/reactions/{thought}', [ReactionsController::class, 'store'])->name('react')->middleware('auth');

@@ -11,7 +11,6 @@ class ThoughtsController extends Controller
     {
         return view('thoughts.index', [
             'thoughts' => $request->user()->thoughts()
-                ->with('user')
                 ->withCount('reactions')
                 ->paginate(3)
         ]);

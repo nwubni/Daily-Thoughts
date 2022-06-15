@@ -10,6 +10,7 @@ class Thought extends Model
     use HasFactory;
 
     protected $fillable = ['message'];
+    protected $with = ['user'];
 
     public function user()
     {
@@ -18,6 +19,6 @@ class Thought extends Model
 
     public function reactions()
     {
-        return $this->hasMany(ThoughtReaction::class);
+        return $this->hasMany(Reaction::class);
     }
 }
