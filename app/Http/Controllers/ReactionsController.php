@@ -13,7 +13,7 @@ class ReactionsController extends Controller
             'thought' => $thought,
             'reactions' => $thought->reactions()
                 ->latest()
-                ->with('user')
+                ->withCount('likes')
                 ->paginate(10)
         ]);
     }

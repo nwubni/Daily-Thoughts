@@ -21,4 +21,8 @@ class Thought extends Model
     {
         return $this->hasMany(Reaction::class);
     }
+
+    public function likes(){
+        return $this->hasMany(Like::class);
+    }
 }

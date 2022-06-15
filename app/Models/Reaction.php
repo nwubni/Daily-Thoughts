@@ -10,6 +10,7 @@ class Reaction extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $with = ['user'];
 
     public function user()
     {
@@ -19,5 +20,10 @@ class Reaction extends Model
     public function thought()
     {
         return $this->belongsTo(Thought::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }
